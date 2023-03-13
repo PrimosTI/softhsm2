@@ -2,13 +2,13 @@
 
 ## Quickstart
 
-1. First run a simple container
+1. First run the container.
 
 ```sh
 docker run --name softhsm2 -i -t ghcr.io/primosti/softhsm2 ash
 ```
 
-2. then initialize a new token from the container's interactive shell:
+2. Then initialize a new token from the container's interactive shell:
 
 ```sh
 softhsm2-util --init-token --free --label "Your token label"
@@ -16,7 +16,7 @@ softhsm2-util --init-token --free --label "Your token label"
 
 ## Persistent storage
 
-1. Create a data directory on a suitable volume on your host system, e.g. `/var/softhsm/tokens`
+1. Create a data directory on a suitable volume on your host system, e.g. `/var/softhsm/tokens`.
 
 2. Start your `softhsm2` container like this:
 
@@ -24,7 +24,7 @@ softhsm2-util --init-token --free --label "Your token label"
 docker run --name softhsm2 -i -t -v /var/softhsm/tokens:/srv/data ghcr.io/primosti/softhsm2 ash
 ```
 
-All of the tokens and their objects are stored in the location given by /srv/config/softhsm2.conf.
+All of the tokens and their objects are stored in the location given by `/srv/config/softhsm2.conf`.
 Backup can thus be done as a regular file copy.
 
 ## Container directory structure
@@ -36,7 +36,7 @@ Backup can thus be done as a regular file copy.
 ├─ data/                - data directory for SoftHSMv2.
 └─ run/                 - XDG runtime directory (for `p11-kit server`).
 
-/usr/lib/pkcs11/        - PKCS#11 module directory.
+/usr/lib/pkcs11/        - PKCS#11 modules directory.
 └─ p11-kit-client.so    - PKCS#11 module library to access tokens exposed by
                           `p11-kit server`.
 
@@ -106,13 +106,13 @@ openssl req -x509 -new -text -subj "/CN=Sample Certificate" -days 365 -engine pk
 
 ## Build and run
 
-1. Build the image
+1. On the project (where is the Dockerfile) directory, build the image.
 
 ```sh
 docker build --tag softhsm2 .
 ```
 
-2. Run the container
+2. Run the container.
 
 ```sh
 docker run --name softhsm2 -i -t softhsm2 ash
@@ -126,7 +126,7 @@ To use a specific version of SoftHSMv2, set the following build arguments:
 
 - `SOFTHSM2_VERSION`: The version of SoftHSMv2 to use. Default: `2.6.1`.
 
-Or specfify the url of the source tarball:
+Or specify the url of the source tarball:
 
 - `SOFTHSM2_SOURCE`: The url of the source tarball. Default: `https://github.com/opendnssec/SoftHSMv2/archive/${SOFTHSM2_VERSION}.tar.gz`.
 
@@ -140,7 +140,7 @@ Copyright (c) 2010 SURFnet bv
 All rights reserved.
 ```
 
-For more information about SoftHSMv2 please visit the main project on [https://github.com/opendnssec/SoftHSMv2](https://github.com/opendnssec/SoftHSMv2)
+For more information about SoftHSMv2 please visit the main project on [https://github.com/opendnssec/SoftHSMv2](https://github.com/opendnssec/SoftHSMv2).
 
 ### OpenSC libp11
 
@@ -148,7 +148,7 @@ To use a specific version of OpenSC libp11, set the following build arguments:
 
 - `LIBP11_VERSION`: The version of OpenSC to use. Default: `0.4.12`.
 
-Or specfify the url of the source tarball:
+Or specify the url of the source tarball:
 
 - `LIBP11_SOURCE`: The url of the source tarball. Default: `https://github.com/OpenSC/libp11/releases/download/libp11-${LIBP11_VERSION}/libp11-${LIBP11_VERSION}.tar.gz`.
 
