@@ -1,6 +1,6 @@
-# softhsm2 by Primos TI
+# Virtual PKCS #11 Module SoftHSMv2 by Primos TI
 
-This project maintain a container images for SoftHSMv2 and tools to manage that module.
+This project maintain a container images for [SoftHSMv2] and tools to manage that module.
 
 - Maintained by: <br> [Primos TI]
 - License: <br> [MIT](LICENSE)
