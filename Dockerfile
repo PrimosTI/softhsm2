@@ -107,6 +107,9 @@ COPY --from=build-softhsm2  /usr/stage/softhsm2/var/            /usr/stage/var
 COPY --from=build-libp11    /usr/stage/libp-11/usr/lib/         /usr/stage/usr/lib
 COPY --from=build-libp11    /usr/stage/libp-11/usr/local/lib/   /usr/stage/usr/local/lib
 
+# Configuration files
+COPY                        etc/                                /usr/stage/etc
+
 ################################################################################
 # Base stage
 # ----------
@@ -135,7 +138,7 @@ FROM base as final
 
 LABEL org.opencontainers.image.title="SoftHSMv2"
 LABEL org.opencontainers.image.vendor="Primos TI"
-LABEL org.opencontainers.image.description="SoftHSMv2 to be used as a PKCS#11 provider"
+LABEL org.opencontainers.image.description="SoftHSMv2 to be used as a PKCS #11 provider."
 LABEL org.opencontainers.image.authors="Rodrigo Speller"
 LABEL org.opencontainers.image.source="https://github.com/PrimosTI/softhsm2"
 
@@ -149,7 +152,6 @@ RUN adduser -u 1000 -D softhsm \
 ENV SOFTHSM2_CONF=/srv/config/softhsm2.conf
 ENV XDG_RUNTIME_DIR=/srv/run
 
-COPY etc/ /etc
 COPY --chown=softhsm:softhsm config/softhsm2.conf ${SOFTHSM2_CONF}
 
 WORKDIR /srv
