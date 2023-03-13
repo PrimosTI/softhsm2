@@ -158,3 +158,9 @@ Copyright (c) The OpenSC libp11 Project https://github.com/OpenSC/libp11
 
 For more information about libp11 please visit the main project on
 [https://github.com/OpenSC/libp11](https://github.com/OpenSC/libp11).
+
+# License
+
+Copyright © 2023 Primos TI
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
