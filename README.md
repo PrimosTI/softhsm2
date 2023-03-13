@@ -35,16 +35,22 @@ softhsm2-util --init-token --free --label "Your token label"
 
 ## Persistent storage
 
+If you remove the container all your data will be lost, and the next time you run the image the store will be
+reinitialized. To avoid this loss of data, you should mount a volume that will persist even after the container is
+removed. Backup can thus be done as a regular file copy.
+
+All of the tokens and their objects are stored in the location given by `/srv/config/softhsm2.conf` (defaults to:
+`/srv/data/tokens`).
+
+To persist the tokens store, you should mount the tokens data directory like:
+
 1. Create a data directory on a suitable volume on your host system, e.g. `/var/softhsm/tokens`.
 
 2. Start your `softhsm2` container like this:
 
 ```sh
-docker run --name softhsm2 -i -t -v /var/softhsm/tokens:/srv/data ghcr.io/primosti/softhsm2 ash
+docker run --name softhsm2 -i -t -v /var/softhsm/tokens:/srv/data/tokens ghcr.io/primosti/softhsm2 ash
 ```
-
-All of the tokens and their objects are stored in the location given by `/srv/config/softhsm2.conf`.
-Backup can thus be done as a regular file copy.
 
 ## Container directory structure
 

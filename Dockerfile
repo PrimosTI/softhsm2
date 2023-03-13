@@ -140,9 +140,11 @@ LABEL org.opencontainers.image.authors="Rodrigo Speller"
 LABEL org.opencontainers.image.source="https://github.com/PrimosTI/softhsm2"
 
 RUN adduser -u 1000 -D softhsm \
-  && mkdir /srv/data \
-  && mkdir /srv/run \
-  && chown -R softhsm:softhsm /srv/data /srv/run
+  && mkdir -p \
+    /srv/config \
+    /srv/data/tokens \
+    /srv/run \
+  && chown -R softhsm:softhsm /srv/data/tokens /srv/run
 
 ENV SOFTHSM2_CONF=/srv/config/softhsm2.conf
 ENV XDG_RUNTIME_DIR=/srv/run
