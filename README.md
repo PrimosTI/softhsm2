@@ -1,6 +1,25 @@
+# softhsm2 by Primos TI
+
+This project maintain a container images for SoftHSMv2 and tools to manage that module.
+
+- Maintained by: <br> [Primos TI]
+- License: <br> [MIT](LICENSE)
+
+## What is SoftHSMv2?
+
+SoftHSMv2 is an implementation of a cryptographic store accessible through a PKCS #11 interface. You can use it to
+explore PKCS #11 without having a Hardware Security Module. It is being developed as a part of the OpenDNSSEC project.
+
+For more information about SoftHSMv2 please visit the main project on [SoftHSMv2].
+
+## What is PKCS #11?
+
+PKCS #11 is a Public-Key Cryptography Standard that defines a standard method to access cryptographic services from
+tokens/devices such as hardware security modules (HSM), smart cards, etc.
+
 # How to use this image
 
-## Quickstart
+## Initializing a new token
 
 1. First run the container.
 
@@ -36,12 +55,12 @@ Backup can thus be done as a regular file copy.
 ├─ data/                - data directory for SoftHSMv2.
 └─ run/                 - XDG runtime directory (for `p11-kit server`).
 
-/usr/lib/pkcs11/        - PKCS#11 modules directory.
-└─ p11-kit-client.so    - PKCS#11 module library to access tokens exposed by
+/usr/lib/pkcs11/        - PKCS #11 modules directory.
+└─ p11-kit-client.so    - PKCS #11 module library to access tokens exposed by
                           `p11-kit server`.
 
 /usr/local/lib/softhsm/ - SoftHSMv2 library directory.
-└─ libsofthsm2.so       - SoftHSMv2 PKCS#11 module library.
+└─ libsofthsm2.so       - SoftHSMv2 PKCS #11 module library.
 ```
 
 These paths can be changed by setting the environment variables `SOFTHSM2_CONF`, `XDG_RUNTIME_DIR` and `softhsm2.conf`
@@ -67,17 +86,18 @@ XDG Base Directory for runtime files (for `p11-kit server`). Default: `/srv/run`
 
 `softhsm2-util`: The main tool for managing tokens and objects in SoftHSMv2.
 
-### PKCS#11 tools
+### PKCS #11 tools
 
-The following tools are installed and configured to use SoftHSMv2 PKCS#11 module by default on the container:
+The following tools are installed and configured to use SoftHSMv2 PKCS #11 module by default on the container:
 
-`p11-kit`: Tool for operating on configured PKCS#11 modules.
+`p11-kit`: Tool for operating on configured PKCS #11 modules.
 
-`p11-kit server`: Run a server process that exposes PKCS#11 module remotely via a Unix socket.
+`p11-kit server`: Run a server process that exposes PKCS #11 module remotely via a Unix socket.
 
-`p11tool`: Tool for operating on PKCS#11 modules.
+`p11tool`: Tool for operating on PKCS #11 modules.
 
-`openssl`: Cryptography toolkit configured to use SoftHSMv2 PKCS#11 module. To use it, add `-engine pkcs11` to the command line.
+`openssl`: Cryptography toolkit configured to use SoftHSMv2 PKCS #11 module. To use it, add `-engine pkcs11` to the
+command line.
 
 #### Examples
 
@@ -140,7 +160,7 @@ Copyright (c) 2010 SURFnet bv
 All rights reserved.
 ```
 
-For more information about SoftHSMv2 please visit the main project on [https://github.com/opendnssec/SoftHSMv2](https://github.com/opendnssec/SoftHSMv2).
+For more information about SoftHSMv2 please visit the main project on [SoftHSMv2]
 
 ### OpenSC libp11
 
@@ -156,18 +176,19 @@ Or specify the url of the source tarball:
 Copyright (c) The OpenSC libp11 Project https://github.com/OpenSC/libp11
 ```
 
-For more information about libp11 please visit the main project on
-[https://github.com/OpenSC/libp11](https://github.com/OpenSC/libp11).
+For more information about libp11 please visit the main project on [libp11].
 
 # How to share the token remotely
 
 Sometimes may be useful to share the token remotely. For example, to use it in another container, or to use it in a
-different host. This can be done exposing the token via a [Unix Domain Socket] by running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
-the PKCS#11 module `p11-kit-client.so` to connect to this socket on client side.
+different host. This can be done exposing the token via a [Unix Domain Socket] by running `p11-kit server` command on
+the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using the PKCS #11 module
+`p11-kit-client.so` to connect to this socket on client side.
 
 ## Security considerations
 
-**Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from unauthorized access.
+**Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from
+unauthorized access.
 
 Some security measures include:
 
@@ -184,7 +205,7 @@ Some security measures include:
 There are some examples of how to share the token remotely, for different cases:
 
 - [Sharing tokens to the host applications](docs/share-token-to-host.md).
-- Sharing tokens to another containers on the same host(soon).
+- Sharing tokens to another containers on the same host (soon).
 - Sharing tokens to another host over network (soon).
 - Sharing tokens over a web API (soon).
 
@@ -193,3 +214,7 @@ There are some examples of how to share the token remotely, for different cases:
 Copyright © 2023 Primos TI
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+[Primos TI]: https://www.primosti.com.br
+[libp11]: https://github.com/OpenSC/libp11
+[SoftHSMv2]: https://github.com/opendnssec/SoftHSMv2

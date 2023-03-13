@@ -1,7 +1,8 @@
 # Exposing tokens to the host applications
 
-Sometimes may be useful to share the token remotely. This can be done exposing the token via a [Unix Domain Socket] by running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
-the PKCS#11 module `p11-kit-client.so` to connect to this socket on client side.
+Sometimes may be useful to share the token remotely. This can be done exposing the token via a [Unix Domain Socket] by
+running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
+the PKCS #11 module `p11-kit-client.so` to connect to this socket on client side.
 
 This is useful, for example, to protect a key material available to host applications, maintaining these materials
 isolated and protected from the host environment. As example, consider the following scenarios:
@@ -12,7 +13,7 @@ isolated and protected from the host environment. As example, consider the follo
 
 Normally, on this scenarios, when a key material is needed, these keys are stored in a file (encrypted by a password, I
 hope) and the application accesses the file to read the key material (with the password). This is not safe, because the
-key material can be exposed, if the application is compromised. With a PKCS#11 token, the key material access is
+key material can be exposed, if the application is compromised. With a PKCS #11 token, the key material access is
 protected by a PIN, and the application can only operate with the key material, not reading it.
 
 The following diagram shows the scenario:
@@ -21,7 +22,8 @@ The following diagram shows the scenario:
 
 ## Security considerations
 
-**Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from unauthorized access.
+**Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from
+unauthorized access.
 
 Some security measures include:
 
