@@ -16,7 +16,9 @@ key material can be exposed, if the application is compromised. With a PKCS#11 t
 protected by a PIN, and the application can only operate with the key material, not reading it.
 
 The following diagram shows the scenario:
+
 ![share-token-diagram]
+
 ## Security considerations
 
 **Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from unauthorized access.
