@@ -211,7 +211,7 @@ Some security measures include:
 There are some examples of how to share the token remotely, for different cases:
 
 - [Sharing tokens to the host applications](docs/share-token-to-host.md).
-- Sharing tokens to another containers on the same host (soon).
+- [Sharing tokens to another containers on the same host](docs/share-token-to-containers.md).
 - Sharing tokens to another host over network (soon).
 - Sharing tokens over a web API (soon).
 

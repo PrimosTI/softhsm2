@@ -1,15 +1,15 @@
-# Sharing tokens to the host applications
+# Sharing tokens to another containers on the same host
 
 Sometimes may be useful to share the token remotely. This can be done exposing the token via a [Unix Domain Socket] by
 running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
 the PKCS #11 module `p11-kit-client.so` to connect to this socket on the client side.
 
-This is useful, for example, to protect a key material available to host applications, maintaining these materials
-isolated and protected from the host environment. As example, consider the following scenarios:
+This is useful, for example, to protect a key material available to other containers applications, maintaining these
+materials isolated and protected from the other environments. As example, consider the following scenarios:
 
 - Connect to a SSH server using a key material;
 - Stablish a mutual TLS connection using a key material;
-- Safely store certificates and keys available to browser applications;
+- Store certificates and keys available to applications running on other containers;
 
 Normally, on this scenarios, when a key material is needed, these keys are stored in a file (encrypted by a password, I
 hope) and the application accesses the file to read the key material (with the password). This is not safe, because the
@@ -37,4 +37,4 @@ Some security measures include:
 
 [Unix Domain Socket]: https://man7.org/linux/man-pages/man7/unix.7.html
 [SoftHSMv2 storage internals]: https://xakcop.com/post/softhsmv2/
-[share-token-diagram]: share-token-to-host.png "Sharing tokens to the host applications diagram"
+[share-token-diagram]: share-token-to-containers.png "Sharing tokens to another containers on the same host diagram"
