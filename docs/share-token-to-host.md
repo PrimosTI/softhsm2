@@ -2,7 +2,7 @@
 
 Sometimes may be useful to share the token remotely. This can be done exposing the token via a [Unix Domain Socket] by
 running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
-the PKCS #11 module `p11-kit-client.so` to connect to this socket on client side.
+the PKCS #11 module `p11-kit-client.so` to connect to this socket on the client side.
 
 This is useful, for example, to protect a key material available to host applications, maintaining these materials
 isolated and protected from the host environment. As example, consider the following scenarios:

@@ -183,7 +183,7 @@ For more information about libp11 please visit the main project on [libp11].
 Sometimes may be useful to share the token remotely. For example, to use it in another container, or to use it in a
 different host. This can be done exposing the token via a [Unix Domain Socket] by running `p11-kit server` command on
 the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using the PKCS #11 module
-`p11-kit-client.so` to connect to this socket on client side.
+`p11-kit-client.so` to connect to this socket on the client side.
 
 ## Security considerations
 
@@ -218,3 +218,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [Primos TI]: https://www.primosti.com.br
 [libp11]: https://github.com/OpenSC/libp11
 [SoftHSMv2]: https://github.com/opendnssec/SoftHSMv2
+[Unix Domain Socket]: https://man7.org/linux/man-pages/man7/unix.7.html
+[SoftHSMv2 storage internals]: https://xakcop.com/post/softhsmv2/
