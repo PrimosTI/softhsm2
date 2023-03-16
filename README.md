@@ -21,13 +21,13 @@ tokens/devices such as hardware security modules (HSM), smart cards, etc.
 
 ## Initializing a new token
 
-1. First run the container.
+1. First, run the container.
 
 ```sh
 docker run --name softhsm2 -i -t ghcr.io/primosti/softhsm2 ash
 ```
 
-2. Then initialize a new token from the container's interactive shell:
+2. Then, initialize a new token from the container's interactive shell:
 
 ```sh
 softhsm2-util --init-token --free --label "Your token label"
@@ -184,36 +184,15 @@ Copyright (c) The OpenSC libp11 Project https://github.com/OpenSC/libp11
 
 For more information about libp11 please visit the main project on [libp11].
 
-# How to share the token remotely
-
-Sometimes may be useful to share the token remotely. For example, to use it in another container, or to use it in a
-different host. This can be done exposing the token via a [Unix Domain Socket] by running `p11-kit server` command on
-the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using the PKCS #11 module
-`p11-kit-client.so` to connect to this socket on the client side.
-
-## Security considerations
-
-**Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from
-unauthorized access.
-
-Some security measures include:
-
-- Use strong Security Officer (SO) PIN and User PIN to protect the token.
-- Define a specific user and group for the container.
-- Set the permissions of the exposed socket to be accessible only by a specific user and group.
-- When sharing the token over network, use a secure connection with mutual authentication (e.g. TLS).
-- Protect the access to the SoftHSMv2 storage. Read more about [SoftHSMv2 storage internals].
-
-> YOU MUST ANALYZE YOUR OWN SCENARIO AND TAKE THE APPROPRIATE SECURITY MEASURES, BY YOUR OWN RISK.
-
-## Sharing the token examples
+# Samples of how to use
 
 There are some examples of how to share the token remotely, for different cases:
 
-- [Sharing tokens to the host applications](docs/share-token-to-host.md).
-- [Sharing tokens to another containers on the same host](docs/share-token-to-containers.md).
-- Sharing tokens to another host over network (soon).
-- Sharing tokens over a web API (soon).
+- [Sharing HSM tokens to the host applications](samples/README.md#sharing-hsm-tokens-to-the-host-applications).
+- [Sharing HSM tokens to another containers on the same host](samples/README.md#sharing-hsm-tokens-to-another-containers-applications-on-the-same-host).
+- [Sharing HSM tokens to another host over network with SSL/TLS](samples/share-token-over-ssl).
+- [Sharing HSM tokens to another host over network with SSH](samples/share-token-over-ssh).
+- Sharing HSM tokens over a web API (concepts) (soon).
 
 # License
 

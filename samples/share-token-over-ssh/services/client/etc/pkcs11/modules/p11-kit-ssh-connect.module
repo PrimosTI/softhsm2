@@ -1,0 +1,13 @@
+#-------------------------------------------------------------------------------
+# p11-kit-ssh-connect.module
+#-------------------------------------------------------------------------------
+# This file configures the p11-kit-ssh-connect script example as an PKCS #11
+# module.
+#
+# This script is part of the "Sharing tokens to another host over network"
+# example of Virtual PKCS #11 Module SoftHSMv2 by Primos TI project.
+#
+# See https://github.com/PrimosTI/softhsm2 for more information.
+#-------------------------------------------------------------------------------
+
+remote: |/srv/bin/p11-kit-ssh-connect.sh

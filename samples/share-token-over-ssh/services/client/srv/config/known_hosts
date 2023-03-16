@@ -1,0 +1,10 @@
+#-------------------------------------------------------------------------------
+# SSH known_hosts file
+#-------------------------------------------------------------------------------
+# Specify the public keys of the SSH servers you want to connect to.
+#
+# This file is used to verify the identity of the SSH servers when
+# `p11-kit-ssh-proxy.sh` script is used.
+#-------------------------------------------------------------------------------
+
+172.16.0.3 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5x9adQqTmpM34ewcZEW0quLHWUEBzhcyIeArh8CQQosf7IRxEdbUqVuuwULvTSsqSub04I7CKk/tj4Gi1zyfmcWt8pbtXLPvaV2YzmzsrShPIizQd7769+fz+zC7X/aYZkdka3U4VhDPspMgtAdZlrb9dZxkg0iM73Ao+hhoiCgRfYLCbub+Y+n9M4Dm7de3D6TYlqqNlZcDgCZhWPORozLcSBnl1LxFsp3i6yaJiRfyGfInxqtSRc81HtxjJKFQI2/KO6Vst+M/f776BDXWWy0LAGdTpCkj6dMLFLcto6bvGuXETrbAuCvn+Q8GM/HpNYT32JAkxMEh6de7+IGcX

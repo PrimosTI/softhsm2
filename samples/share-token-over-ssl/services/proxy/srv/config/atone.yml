@@ -1,0 +1,18 @@
+#-------------------------------------------------------------------------------
+# Atone cofiguration file.
+# See https://github.com/rodrigo-speller/atone for more information.
+#-------------------------------------------------------------------------------
+
+services:
+
+  proxy-service:
+    # This example has two alternatives for the proxy command:
+    #
+    # p11-kit-ssl-proxy.sh: Initializes the proxy by a shell script that
+    #                       executes to listen for connections and forward the
+    #                       traffic to PKCS #11 socket over 'socat' command.
+    command: /srv/bin/p11-kit-ssl-proxy.sh
+    # p11-kit-ssl-proxy.py: Initializes the proxy using a pure python script.
+    # command: /srv/bin/p11-kit-ssl-proxy.sh
+    #command: /srv/bin/p11-kit-ssl-proxy.py
+    restart: always

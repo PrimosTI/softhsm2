@@ -1,0 +1,11 @@
+#-------------------------------------------------------------------------------
+# Atone cofiguration file.
+# See https://github.com/rodrigo-speller/atone for more information.
+#-------------------------------------------------------------------------------
+
+services:
+
+  main:
+    # This service is just a placeholder to keep the container running.
+    command: sleep infinity
+    restart: always
