@@ -60,11 +60,6 @@ The following diagram illustrates the scenario:
 
 ![share-token-to-containers-diagram](share-token-to-containers.png "Sharing HSM tokens to another containers applications on the same host diagram")
 
-## Sharing HSM tokens to another host over network with SSL/TLS
-
-The same scenario described [above](#sharing-hsm-tokens-to-the-host-applications) can be used to share the token to
-another host over network with SSL/TLS.
-
 ## Sharing HSM tokens examples
 
 The following examples show how to share a token to operate with the token remotely.
