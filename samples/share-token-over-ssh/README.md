@@ -66,7 +66,7 @@ docker exec -it client ash
 # You can use "p11tool" to operate with the token.
 # Use "p11tool --help" to see all available options.
 #
-# For example, to list the available tokens:
+# For example, list the available tokens:
 p11tool --list-tokens
 ```
 
