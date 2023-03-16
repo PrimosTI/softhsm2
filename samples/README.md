@@ -69,8 +69,8 @@ another host over network with SSL/TLS.
 
 The following examples show how to share a token to operate with the token remotely.
 
-- [Sharing HSM tokens to another host over network with SSL/TLS](samples/share-token-over-ssl).
-- [Sharing HSM tokens to another host over network with SSH](samples/share-token-over-ssh).
+- [Sharing HSM tokens to another host over network with SSL/TLS](./share-token-over-ssl/).
+- [Sharing HSM tokens to another host over network with SSH](./share-token-over-ssh/).
 - Sharing HSM tokens over a web API (concepts) (soon).
 
 ## Security considerations
