@@ -1,20 +1,11 @@
 # Sharing HSM tokens to another host over network with SSH
 
-Sometimes may be useful to share the HSM (Hardware Security Module) token remotely. This can be done exposing the token
-via a [Unix Domain Socket] by running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the
-token can be accessed by using the PKCS #11 module `p11-kit-client.so` to connect to this socket on the client side.
+This example is part of the [Sharing HSM tokens examples](../README.md#sharing-hsm-tokens-examples) and shows how to
+share a token to operate it remotely over network with SSH protocol.
 
-This is useful, for example, to protect a key material available to other applications in another hosts, maintaining
-these materials isolated and protected. As example, consider the following scenarios:
+This example uses the `ghcr.io/primosti/softhsm2` image as `HSM container` to use [SoftHSMv2] as the HSM token.
 
-- Connect to a SSH server using a key material;
-- Stablish a mutual TLS connection using a key material;
-- Store certificates and keys available to applications running on other hosts;
-
-Normally, on this scenarios, when a key material is needed, these keys are stored in a file (encrypted by a password -
-*I hope*) and the application accesses the file to read the key material (with the password). This is not safe, because
-the key material can be exposed, if the application is compromised. With a PKCS #11 token, the key material access is
-protected by a PIN and the application can only operate with the key material, not reading it.
+![softhsm2-container-diagram](softhsm2-container.png "Softhsm2 container diagram")
 
 ## How to share the token over network with SSH
 
@@ -93,7 +84,8 @@ Licensed under the MIT License. See LICENSE in the project root for license info
 
 
 [Unix Domain Socket]: https://man7.org/linux/man-pages/man7/unix.7.html
+[SoftHSMv2]: https://www.opendnssec.org/softhsm/
 [SoftHSMv2 storage internals]: https://xakcop.com/post/softhsmv2/
-[share-token-diagram]: diagram.png "Sharing HSM tokens to another host over network with SSH"
+[share-token-diagram]: share-token-over-ssh.png "Sharing HSM tokens to another host over network with SSH"
 [GnuTLS: PKCS #11 Initialization]: https://www.gnutls.org/manual/html_node/PKCS11-Initialization.html
 [pkcs11.conf(5)]: https://man.archlinux.org/man/pkcs11.conf.5.en

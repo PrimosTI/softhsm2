@@ -210,8 +210,8 @@ Some security measures includes:
 
 There are some examples of how to share the token remotely, for different cases:
 
-- [Sharing HSM tokens to the host applications](samples/share-token-to-host.md).
-- [Sharing HSM tokens to another containers on the same host](samples/share-token-to-containers.md).
+- [Sharing HSM tokens to the host applications](samples/README.md#sharing-hsm-tokens-to-the-host-applications).
+- [Sharing HSM tokens to another containers on the same host](samples/README.md#sharing-hsm-tokens-to-another-containers-applications-on-the-same-host).
 - [Sharing HSM tokens to another host over network with SSL/TLS](samples/share-token-over-ssl).
 - [Sharing HSM tokens to another host over network with SSH](samples/share-token-over-ssh).
 - Sharing HSM tokens over a web API (concepts) (soon).
