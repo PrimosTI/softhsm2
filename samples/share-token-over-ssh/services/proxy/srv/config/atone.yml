@@ -1,0 +1,10 @@
+#-------------------------------------------------------------------------------
+# Atone cofiguration file.
+# See https://github.com/rodrigo-speller/atone for more information.
+#-------------------------------------------------------------------------------
+
+services:
+
+  proxy-service:
+    command: /usr/sbin/sshd -D
+    restart: always

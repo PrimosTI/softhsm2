@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  client:
+    build: services/client
+    volumes:
+      - ../volumes/keys:/srv/keys:ro
+    networks:
+      default:
+        ipv4_address: 172.16.0.4
+
+  hsm:
+    build: services/hsm
+    volumes:
+      - ../volumes/data:/srv/data
+      - ./services/hsm/volumes/sockets:/srv/run/sockets
+    networks:
+      default:
+        ipv4_address: 172.16.0.2
+
+  proxy:
+    build: services/proxy
+    volumes:
+      - ../volumes/keys:/srv/keys:ro
+      - ./services/hsm/volumes/sockets:/srv/run/sockets:ro
+    networks:
+      default:
+        ipv4_address: 172.16.0.3
+
+networks:
+
+  # Default network
+  # ---------------
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.0.0/28"

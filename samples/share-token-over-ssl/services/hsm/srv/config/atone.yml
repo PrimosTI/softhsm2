@@ -1,0 +1,10 @@
+#-------------------------------------------------------------------------------
+# Atone cofiguration file.
+# See https://github.com/rodrigo-speller/atone for more information.
+#-------------------------------------------------------------------------------
+
+services:
+
+  hsm-server:
+    command: p11-kit server --foreground --name /srv/run/sockets/token1.sock "pkcs11:token=token1"
+    restart: always

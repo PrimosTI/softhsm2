@@ -1,8 +1,8 @@
-# Sharing tokens to the host applications
+# Sharing HSM tokens to the host applications
 
-Sometimes may be useful to share the token remotely. This can be done exposing the token via a [Unix Domain Socket] by
-running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the token can be accessed by using
-the PKCS #11 module `p11-kit-client.so` to connect to this socket on the client side.
+Sometimes may be useful to share the HSM (Hardware Security Module) token remotely. This can be done exposing the token
+via a [Unix Domain Socket] by running `p11-kit server` command on the `ghcr.io/primosti/softhsm2` container. Then, the
+token can be accessed by using the PKCS #11 module `p11-kit-client.so` to connect to this socket on the client side.
 
 This is useful, for example, to protect a key material available to host applications, maintaining these materials
 isolated and protected from the host environment. As example, consider the following scenarios:
@@ -11,10 +11,10 @@ isolated and protected from the host environment. As example, consider the follo
 - Stablish a mutual TLS connection using a key material;
 - Safely store certificates and keys available to browser applications;
 
-Normally, on this scenarios, when a key material is needed, these keys are stored in a file (encrypted by a password, I
-hope) and the application accesses the file to read the key material (with the password). This is not safe, because the
-key material can be exposed, if the application is compromised. With a PKCS #11 token, the key material access is
-protected by a PIN, and the application can only operate with the key material, not reading it.
+Normally, on this scenarios, when a key material is needed, these keys are stored in a file (encrypted by a password - 
+*I hope*) and the application accesses the file to read the key material (with the password). This is not safe, because
+the key material can be exposed, if the application is compromised. With a PKCS #11 token, the key material access is
+protected by a PIN and the application can only operate with the key material, not reading it.
 
 The following diagram shows the scenario:
 
@@ -25,7 +25,7 @@ The following diagram shows the scenario:
 **Warning:** Sharing the token remotely can have security implications. Take security measures to protect the token from
 unauthorized access.
 
-Some security measures include:
+Some security measures includes:
 
 - Use strong Security Officer (SO) PIN and User PIN to protect the token.
 - Define a specific user and group for the container.
@@ -35,6 +35,13 @@ Some security measures include:
 
 > YOU MUST ANALYZE YOUR OWN SCENARIO AND TAKE THE APPROPRIATE SECURITY MEASURES, BY YOUR OWN RISK.
 
+# License
+
+Copyright © 2023 Primos TI
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
 [Unix Domain Socket]: https://man7.org/linux/man-pages/man7/unix.7.html
 [SoftHSMv2 storage internals]: https://xakcop.com/post/softhsmv2/
-[share-token-diagram]: share-token-to-host.png "Sharing tokens to the host applications diagram"
+[share-token-diagram]: share-token-to-host.png "Sharing HSM tokens to the host applications diagram"
