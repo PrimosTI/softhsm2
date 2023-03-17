@@ -108,7 +108,7 @@ DisableForwarding yes
 #Banner none
 
 # override default of no subsystems
-Subsystem	sftp	internal-sftp
+#Subsystem	sftp	internal-sftp
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
