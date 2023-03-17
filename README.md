@@ -52,6 +52,16 @@ To persist the tokens store, you should mount the tokens data directory like:
 docker run --name softhsm2 -i -t -v /var/softhsm/tokens:/srv/data/tokens ghcr.io/primosti/softhsm2 ash
 ```
 
+## Examples of how to use
+
+There are some examples of how to share the token remotely, for different cases:
+
+- [Sharing HSM tokens to the host applications](samples/README.md#sharing-hsm-tokens-to-the-host-applications).
+- [Sharing HSM tokens to another containers on the same host](samples/README.md#sharing-hsm-tokens-to-another-containers-applications-on-the-same-host).
+- [Sharing HSM tokens to another host over network with SSL/TLS](samples/share-token-over-ssl).
+- [Sharing HSM tokens to another host over network with SSH](samples/share-token-over-ssh).
+- Sharing HSM tokens over a web API (concepts) (soon).
+
 ## Container directory structure
 
 ```text
@@ -183,16 +193,6 @@ Copyright (c) The OpenSC libp11 Project https://github.com/OpenSC/libp11
 ```
 
 For more information about libp11 please visit the main project on [libp11].
-
-# Samples of how to use
-
-There are some examples of how to share the token remotely, for different cases:
-
-- [Sharing HSM tokens to the host applications](samples/README.md#sharing-hsm-tokens-to-the-host-applications).
-- [Sharing HSM tokens to another containers on the same host](samples/README.md#sharing-hsm-tokens-to-another-containers-applications-on-the-same-host).
-- [Sharing HSM tokens to another host over network with SSL/TLS](samples/share-token-over-ssl).
-- [Sharing HSM tokens to another host over network with SSH](samples/share-token-over-ssh).
-- Sharing HSM tokens over a web API (concepts) (soon).
 
 # License
 
